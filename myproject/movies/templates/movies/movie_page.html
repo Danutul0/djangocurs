@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{movie.title}}
+{% endblock %}
+
+{% block content %}
+    <section>
+        <img 
+        class="banner"
+        src="{{movie.banner.url}}"
+        alt="{{movie.title}}"
+        />
+        <h1>{{movie.title}}</h1>
+        <p>Published on {{movie.date}}</p>
+        <p>{{movie.description}}</p> 
+    </section>
+{% endblock %}

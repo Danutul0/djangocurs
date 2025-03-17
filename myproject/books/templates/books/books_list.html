@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Books
+{% endblock %}
+
+{% block content %}
+<section> 
+    <h1>Books</h1>
+
+    {% for book in books %}
+        <article class = "book">
+            <h2>
+                <a href="{% url 'books:book' book.slug %}">
+                    {{ book.title }}
+                </a>
+            </h2>
+            <p>Published on {{ book.date}}</p>
+            <p>{{ book.body }}</p>
+        </article>
+    {% endfor %}
+
+    <a href="{% url 'books:book_add' %}" class="button-link">
+        <h1>Add a new book</h1>
+    </a>
+</section>
+{% endblock %}

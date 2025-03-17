@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{book.title}}
+{% endblock %}
+
+{% block content %}
+    <section>
+        <img 
+        class="banner"
+        src="{{book.banner.url}}"
+        alt="{{book.title}}"
+        />
+        <h1>{{book.title}}</h1>
+        <p>Published on {{book.date}}</p>
+        <p>{{book.description}}</p> 
+    </section>
+{% endblock %}

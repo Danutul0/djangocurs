@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Add Book
+{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Add Book</h1>
+    <form class="form-with-validation" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button class="form-submit">Add Book</button>
+    </form>
+</section>
+{% endblock %}

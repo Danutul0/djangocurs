@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Movies
+{% endblock %}
+
+{% block content %}
+<section> 
+    <h1>Movies</h1>
+
+    {% for movie in movies %}
+        <article class = "movie">
+            <h2>
+                <a href="{% url 'movies:movie' movie.slug %}">
+                    {{ movie.title }}
+                </a>
+            </h2>
+            <p>Published on {{ movie.date}}</p>
+            <p>{{ movie.body }}</p>
+        </article>
+    {% endfor %}
+
+    <a href="{% url 'movies:movie_add' %}" class="button-link">
+        <h1>Add a new movie</h1>
+    </a>
+</section>
+{% endblock %}
