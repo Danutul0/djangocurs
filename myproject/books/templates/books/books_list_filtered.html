@@ -1,4 +1,4 @@
-<!-- filepath: d:\Python\Django - Curs\myproject\books\templates\books\books_list.html -->
+<!-- filepath: d:\Python\Django - Curs\myproject\books\templates\books\books_list_filtered.html -->
 {% extends 'layout.html' %}
 
 {% block title %}
@@ -9,8 +9,9 @@
 <section>
     <h1>Books</h1>
     <form method="get" action="{% url 'books:books_list_filtered' %}" class="search-form">
-        <input type="text" name="title" placeholder="Search by title" class="search-input">
-        <button type="submit" class="search-button">Search</button>
+        {% csrf_token %}
+        <input type="text" name="title" value="{{ title }}" placeholder="Search by title" class="search-input">
+        <button type="submit" class = "search-button" >Search</button>
     </form>
     {% for book in books %}
         <article class="book">
@@ -23,8 +24,5 @@
             <p>{{ book.description }}</p>
         </article>
     {% endfor %}
-    <a href="{% url 'books:book_add' %}" class="button-link">
-        <h1>Add a new book</h1>
-    </a>
 </section>
 {% endblock %}
